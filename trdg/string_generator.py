@@ -133,9 +133,9 @@ def create_strings(count):
                 if np.random.random() < prob_special:
                     num = np.random.randint(special_len)
                     chars.append(special_chars[num])
-            else:
-                num = np.random.randint(valid_len)
-                chars.append(valid_chars[num])
+
+            num = np.random.randint(valid_len)
+            chars.append(valid_chars[num])
         chars = "".join(chars)
         strings.append(chars)
     return strings
