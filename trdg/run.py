@@ -14,6 +14,7 @@ from trdg.string_generator import (
     create_strings_from_file,
     create_strings_from_wikipedia,
     create_strings_randomly,
+    create_strings
 )
 from trdg.utils import load_dict, load_fonts
 from trdg.data_generator import FakeTextDataGenerator
@@ -359,6 +360,8 @@ def main():
         strings = create_strings_from_wikipedia(args.length, args.count, args.language)
     elif args.input_file != "":
         strings = create_strings_from_file(args.input_file, args.count)
+    elif args.random_sequences:
+        strings = create_strings(args.length)
     elif args.random_sequences:
         strings = create_strings_randomly(
             args.length,

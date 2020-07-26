@@ -1,4 +1,5 @@
 import random as rnd
+import numpy as np
 import re
 import string
 import requests
@@ -113,4 +114,28 @@ def create_strings_randomly(length, allow_variable, count, let, num, sym, lang):
             current_string += "".join([rnd.choice(pool) for _ in range(seq_len)])
             current_string += " "
         strings.append(current_string[:-1])
+    return strings
+
+
+def create_strings(count):
+    prob_special = 0.5
+
+    valid_chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ "
+    special_chars = "./-"
+    valid_len = len(valid_chars)
+    special_len = len(special_chars)
+
+    strings = []
+    for _ in range(count):
+        chars = []
+        for i in range(11):
+            if i in [2, 4, 6]:
+                if np.random.random() < prob_special:
+                    num = np.random.randint(special_len)
+                    chars.append(special_chars[num])
+            else:
+                num = np.random.randint(valid_len)
+                chars.append(valid_chars[num])
+        chars = "".join(chars)
+        strings.append(chars)
     return strings
