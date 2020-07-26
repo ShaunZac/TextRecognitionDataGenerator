@@ -121,7 +121,7 @@ def create_strings(count):
     prob_special = 0.5
 
     valid_chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ "
-    special_chars = "./-"
+    special_chars = "./-,:;'`"
     valid_len = len(valid_chars)
     special_len = len(special_chars)
 
